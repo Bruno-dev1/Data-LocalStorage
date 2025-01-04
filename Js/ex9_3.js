@@ -34,3 +34,19 @@ const verApostaExiste=(peso)=>{
         return false
     }
 }
+const mostrarApostas=()=>{
+    if (!localStorage.getItem("melanciaNome")){
+        respLista.innerText=""
+        return
+    }
+
+    const nomes = localStorage.getItem("melanciaNome").split(";")
+    const pesos = localStorage.getItem("melanciasPeso").split(";")
+    
+    let linha=""
+    for (let i=0;i<nomes.length;i++){
+        linha+=`${nomes[i]} apostou ${pesos[i]}g\n`
+    }
+    respLista.innerText=linha
+}
+window.addEventListener("load",mostrarApostas)
